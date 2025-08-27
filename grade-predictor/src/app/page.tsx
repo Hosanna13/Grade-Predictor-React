@@ -1,5 +1,5 @@
-import Image from "next/image";
 'use client';
+import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import './globals.css'
@@ -18,45 +18,47 @@ export default function Home() {
     'I rework all of the quiz and test items I have missed before the next class session.',
     'I realize that I can still do well in this class even if I have done poorly on the quizzes and tests up to this point.'
   ];
-  const {currentIndex, setCurrentIndex} = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState('');
   const [started, getStarted] = useState(false);
 
-  const displayResult = (score: number) => {
-    if (score <= 2){
-      setResult('F');
-    }
-    else if (score > 2 && score <= 4){
-      setResult('D');
-    }
-    else if (score > 4 && score <= 6){
-      setResult('C');
-    }
-    else if (score > 4 && score <= 8){
-      setResult('B');
-    }
-    else {
-      setResult('A');
-    }
+  const displayResult = (s: number) => {
+    if (s <= 2) return 'F';
+    if (s <= 4) return 'D';
+    if (s <= 6) return 'C';
+    if (s <= 8) return 'B';
+    return 'A';
   }
 
-  const answerQuestion = (response: string) => {
-    if (currentIndex >= questions.length) {
-      if (response === 'yes') {
-        setScore(score + 1);
-      }
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setResult(displayResult(score + (response === 'yes' ? 1 : 0)));
+  const answerQuestion = (response: 'yes' | 'no') => {
+    const add = response === 'yes' ? 1 : 0;
+    const newScore = score + add;
 
+
+    console.log("new score: " + newScore);
+    console.log("current index: " + currentIndex);
+    console.log("questions length: " + questions.length);
+
+    if (currentIndex >= questions.length ) {
+      if (response === 'yes') {
+        setScore(newScore);
+        setResult(displayResult(newScore));
+      }
+
+      setCurrentIndex(currentIndex + 1);
+
+    } 
+    else {
+      setScore(newScore);
+      setCurrentIndex(currentIndex + 1);
     }
     
   }
 
   const startQuiz = () => {
     getStarted(true);
-    setCurrentIndex(0);
+    setCurrentIndex(1);
     setScore(0);
     setResult('');
   }
