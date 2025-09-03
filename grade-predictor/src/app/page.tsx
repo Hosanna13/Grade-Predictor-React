@@ -1,5 +1,5 @@
-import Image from "next/image";
 'use client';
+
 import React from "react";
 import { useState } from "react";
 import './globals.css'
@@ -18,7 +18,7 @@ export default function Home() {
     'I rework all of the quiz and test items I have missed before the next class session.',
     'I realize that I can still do well in this class even if I have done poorly on the quizzes and tests up to this point.'
   ];
-  const {currentIndex, setCurrentIndex} = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState('');
   const [started, getStarted] = useState(false);
@@ -42,17 +42,13 @@ export default function Home() {
   }
 
   const answerQuestion = (response: string) => {
-    if (currentIndex >= questions.length) {
-      if (response === 'yes') {
-        setScore(score + 1);
-      }
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setResult(displayResult(score + (response === 'yes' ? 1 : 0)));
-
+    if (response === "yes") {
+        setScore((score) => score + 1)
     }
-    
+      setCurrentIndex((currentIndex) => currentIndex + 1)
+      displayResult(score)
   }
+
 
   const startQuiz = () => {
     getStarted(true);
@@ -61,26 +57,35 @@ export default function Home() {
     setResult('');
   }
 
-  return (
-    <div className="container">
-      <div className="heading">
-          <h1> Grade Predictor</h1>
-          <h2 > Let's Predict Your Grade</h2>
-          { !started ? (
-            <button className="button" onClick={startQuiz}>
-              <span className="button-link"> Predict Now</span>
-            </button>
-          ) :
-          result ? ( 
-            <div> Your predicred grade: {result}</div>
-          ) : (
-            <div>
-              <div>{questions[currentIndex]} </div>
-              <button onClick={() => answerQuestion('yes')} className="button">Yes</button>
-              <button onClick={() => answerQuestion('no')} className="button">No</button>
+    return (
+        <div className="grid place-items-center h-screen bg-gray-100">
+            <div className="header">
+                <h1>Grade Predictor</h1>
+                <h2>Let's Predict Your Grade</h2>
             </div>
-          )}
-      </div>
-    </div>
-  );
+
+            <main className="bg-white p-8 rounded-lg shadow-md">
+                {!started ? (
+                    <button className="button" onClick={startQuiz}>
+                        <span className="button-link">Predict Now</span>
+                    </button>
+                ) : currentIndex >= questions.length ? (
+                    <h1>{ result }</h1>
+                ) : (
+                    <>
+                        <div> {questions[currentIndex]}</div>
+                        <div className="flex justify-center"> {score}</div>
+                        <div className="flex justify-center space-x-4">
+                        <button className="button" onClick={() => answerQuestion("yes")}>
+                            Yes
+                        </button>
+                        <button className="button" onClick={() => answerQuestion("no")}>
+                            No
+                        </button>
+                        </div>
+                    </>
+                )}
+            </main>
+        </div>
+    );
 }
