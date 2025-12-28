@@ -2,7 +2,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #327dd3;
+  --text-color: #171717;
+  --button-color: var(--foreground);
+  --button-text-color: #ffffff;
+}
+
+/* Apply theme variables */
+html, body, * {
+  color: var(-text-color);
+  background-color: var(--background);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 @theme inline {
@@ -19,9 +29,17 @@
   }
 }
 
-@font-face {
-  font-family: Tahoma, Verdana, sans-serif;
-}
+
+
+
+
+
+
+
+
+
+
+
 
 body {
   background: var(--background);
