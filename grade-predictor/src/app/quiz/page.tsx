@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import '../quiz.css';
 export default function QuizPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -70,23 +71,30 @@ export default function QuizPage() {
 
     return (
         <div className='quiz-container'>
+            <span className="progress-label"> 📚 Study Habits Check-in</span>
+            <div className="progress">
             {!isFinished ? (
                 // Display current question
                 <>
-                    <p className='questions'>{questions[currentQuestionIndex]}</p>
-                    <button className="yes-button" onClick={handleYesClick}>Yes</button>
-                    <button className="no-button" onClick={handleNoClick}>No</button>
+                    <span className='progress-count'> Question {currentQuestionIndex + 1} of 11 </span>
+                    <h1 className='questions'>{questions[currentQuestionIndex]}</h1>
+                    <p className='question-hint'> Think about your usual study routine</p>
+                    <div className='button-container'>
+                        <button className="button" onClick={handleYesClick}>Yes</button>
+                        <button className="no-button" onClick={handleNoClick}>No</button>
+                    </div>
                 </>
             ) : (
                 // Display results
                 <>
                     <p>Your predicted grade is: {scoreLetter} </p> 
-                    <button className="rest button" onClick={handleResetClick}>Retake Quiz</button>
+                    <button className="rest-button" onClick={handleResetClick}>Retake Quiz</button>
                     <Link href="/">
-                        <button className="home-button">Go Home</button>
+                        <button className="home-btn">Go Home</button>
                     </Link>
                 </>
             )}
+            </div>
         </div>
     )
 }

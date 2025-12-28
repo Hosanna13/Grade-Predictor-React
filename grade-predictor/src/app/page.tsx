@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
-import './globals.css'
+import './quiz.css';
 
 export default function Home() {
   const handleClick = () => {
@@ -11,14 +11,16 @@ export default function Home() {
   };
   return (
     <div className="home-container">
+    <div className='hero'>
       <h1 className="welcome-header">
         Let's Predict Your Grade!
       </h1>
       <Link href="/quiz">
-        <button className="start-quiz-button" onClick={handleClick}>
+        <button className="button" onClick={handleClick}>
           Start Quiz
         </button>
       </Link>
+      </div>
     </div>
   );
 }

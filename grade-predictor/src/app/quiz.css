@@ -1,15 +1,72 @@
 @import url('./globals.css');
 /* Home Page Styles */
 .home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+.hero {
+    text-align: center;
 }
 .welcome-header {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 100%;
+     margin-bottom: 1rem;
+}
+
+/* Quiz Page Styles */
+.quiz-container {
+    display: flex;
+   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    background-color: var(--background-color);
+    padding: 32px;
+    text-shadow: 0cm 0cm 0.2cm var(--text-shadow);
+    border-style: solid;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.progress-label{
+    margin-left: 10px;
+}
+.progress-count{}
+
+.question {
+ display: inline-block;
+ position: relative;
+ text-align: center;
+ white-space: nowrap;
+ min-width: 100%;
+ margin-bottom: 1rem;
+}
+.no-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--background-color);;
+    border-style: solid;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+}
+
+.rest-button{
+
+}
+.home-btn{
+
 }
