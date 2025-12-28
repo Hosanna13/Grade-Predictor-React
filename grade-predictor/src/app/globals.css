@@ -2,55 +2,18 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #327dd3;
-  --text-color: #171717;
+  --foreground: #a3b18a;
+  --text-color: #dad7cd;
   --button-color: var(--foreground);
   --button-text-color: #ffffff;
   --button-hover-color: #285bb5;
 }
 
 /* Apply theme variables */
-html, body, * {
-  color: var(-text-color);
-  background-color: var(--background);
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  /*--font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);*/
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 p {
   margin: 0;
   padding: 0;
   color: var(--text-color);
-  font-weight: bold;
-}
-body {
-  background: var(--background);
-  color: var(--foreground);
 }
 .container {
   width: 1440px;
@@ -85,4 +48,18 @@ body {
 
 .button:hover {
   background-color: var(--button-hover-color);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /*--font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);*/
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
