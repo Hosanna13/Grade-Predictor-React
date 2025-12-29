@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: radial-gradient(at 0% 4%, #576e7f 0px, transparent 50%), radial-gradient(at 22% 9%, #588157 0px, transparent 50%), #344f41;
+    background: var(--bg);
 
 }
 .hero {
@@ -57,18 +57,34 @@
     radial-gradient(circle at 18% 28%, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 58%),
     radial-gradient(circle at 90% 70%, rgba(144,224,171,.26) 0%, rgba(144,224,171,0) 62%),
     linear-gradient(135deg, #254f45 0%, #3a7a6b 52%, #4ea48a 100%);
-    box-shadow: 0 25px 50px -12px rgba(30, 194, 129, 0.55);
+    /*box-shadow: 0 25px 50px -12px rgba(30, 194, 129, 0.55);*/
     text-shadow: 0 2px 10px rgba(0,0,0,.45);
 }
 .start-btn:hover {
-    background:
-    radial-gradient(circle at 18% 28%, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 58%),
-    radial-gradient(circle at 90% 70%, rgba(144,224,171,.16) 0%, rgba(144,224,171,0) 62%),
-    linear-gradient(135deg, #1f3f39 0%, #2b5a4c 52%, #2f6b58 100%);
-    transition: all 0.3s ease;
-    box-shadow: 0 20px 40px -10px rgba(15, 40, 30, 0.45);
-
+    position: relative;
 }
+@keyframes rotation {
+    0% {--gradient-angle: 0deg;}
+    100% {--gradient-angle: 360deg;}
+}
+.start-btn::before, .start-btn::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+       from var(--gradient-angle),
+        var(--clr1),
+        var(--clr2),
+        var(--clr5),
+        var(--clr2),
+        var(--clr1));
+    border-radius: inherit;
+    animation: rotation 20s linear infinite;
+}
+.start-btn::after{
+    filter: blur(3.5rem);
+}
+
 /* Quiz Page Styles */
 .quiz-container {
     display: flex;

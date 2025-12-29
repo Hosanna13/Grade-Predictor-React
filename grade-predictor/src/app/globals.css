@@ -1,12 +1,28 @@
 @import "tailwindcss";
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
 :root {
+  --bg: radial-gradient(at 0% 4%, #576e7f 0px, transparent 50%), radial-gradient(at 22% 9%, #588157 0px, transparent 50%), #344f41;
   --background: #ffffff;
   --foreground: #a3b18a;
   --text-color: #dad7cd;
   --button-color: var(--foreground);
   --button-text-color: #ffffff;
   --button-hover-color: #285bb5;
+   /* core glow */
+   --clr1: #37CBBE;
+    /* outer glow */
+  --clr2: #7FE6B7;
+  /* deepest shadow glow */
+  --clr3: #0F2E28;
+  /* highlight */
+  --clr4: rgba(255,255,255,.35);
+  /*smooth blending */
+  --clr5: #2F9C8F;
 }
 
 /* Apply theme variables */
