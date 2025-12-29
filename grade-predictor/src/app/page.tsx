@@ -34,15 +34,24 @@ export default function Home() {
         <div className="featurecard"> <span className='icon'> 📈 </span><p className='icon-text'> Access your Habits</p></div>
       </div>
       <footer className="footer">
+        
         < div className='stats-section'>
-          <div className="stat">100+ 
-              <p className="stat-desc">Students assessed</p>
+          <span className="stats-line"></span>
+          <div className="stats-statement"> INSPIRED BY SAUNDRA MCGUIRE'S BOOK
+            <p className="stats-substatement"> "Teach Students How to Learn: How to Learn: Strategies You Can Use to Ace Any Course at Any Level" </p>
           </div>
-          <div className="stat">85% 
-          <p className="stat-desc">Accuracy rate</p>
-          </div>
-          <div className="stat"> 12
-          <p className="stat-desc">Questions</p> </div>
+
+            <div className="stat-contaier">
+              <div className="stat">100+ 
+                  <p className="stat-desc">Students assessed</p>
+              </div>
+              <div className="stat">85% 
+                <p className="stat-desc">Accuracy rate</p>
+              </div>
+              <div className="stat"> 12
+                <p className="stat-desc">Questions</p> 
+              </div>
+            </div>
         </div>
       </footer>
 

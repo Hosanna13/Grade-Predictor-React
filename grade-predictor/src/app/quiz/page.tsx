@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import '../quiz.css';
+import './page.css';
 export default function QuizPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);

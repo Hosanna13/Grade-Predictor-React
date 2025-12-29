@@ -1,0 +1,32 @@
+@import url('../globals.css');
+
+/* Quiz Page Styles */
+body {
+    background: var(--bg);
+}
+.quiz-container {
+
+}
+
+.progress {
+
+ 
+}
+.progress-label{
+
+}
+.progress-count{}
+
+.question {
+
+}
+.no-button {
+ 
+}
+
+.rest-button{
+
+}
+.home-btn{
+
+}
