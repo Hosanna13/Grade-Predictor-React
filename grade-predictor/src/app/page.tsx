@@ -29,9 +29,9 @@ export default function Home() {
       </div>
       <br />
       <div className="benefits-section">
-        <li> <span className="icon">⏱️</span> Takes 5 minutes</li>
-        <li> <span className="icon">🔒</span> 100% Anonymous</li>
-        <li> <span className='icon'>📈</span> Access your Habits</li>
+        <div className="featurecard"> <span className="icon"> ⏱️ </span><p className='icon-text'> Takes 5 minutes</p> </div>
+        <div className="featurecard"> <span className="icon"> 🔒 </span><p className='icon-text'> 100% Anonymous</p></div>
+        <div className="featurecard"> <span className='icon'> 📈 </span><p className='icon-text'> Access your Habits</p></div>
       </div>
       <footer className="footer">
         < div className='stats-section'>
