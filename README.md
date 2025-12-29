@@ -34,6 +34,7 @@ This project is designed to learn:
 - Core app flow + main fuctionality 
 - Core functionalliy is build and working on end-to-end 
 - Cleaned up and fixed earlier bugs/errors 
+- UI/UX design home page 
 
 **🚧 In Progress:**
 - UI/UX design improvements (layout, typography, spacing, consistency)
@@ -41,3 +42,6 @@ This project is designed to learn:
 **📅 Planned:**
 - Final UI polish + responsiveness check across screen sizes 
 - Deploy + add a live demo link
+
+### Developer Notes Ignore 
+[`Colors`](https://coolors.co/dad7cd-a3b18a-588157-3a5a40-344e41)
