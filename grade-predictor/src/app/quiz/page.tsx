@@ -44,22 +44,11 @@ export default function QuizPage() {
   };
     const handleYesClick = () => {
         console.log('Yes clicked');
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setScore(score + 1);
-        if (currentQuestionIndex === questions.length - 1) {
-            setFinished(true);
-            console.log('Quiz finished! Your score is: ' + score);
-        }
-        handleScore(score);
+        goNext(1);
     };
     const handleNoClick = () => {
         console.log('No clicked');
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        if (currentQuestionIndex === questions.length - 1) {
-            setFinished(true);
-            console.log('Quiz finished! Your score is: ' + score);
-        }
-        handleScore(score);
+        goNext(0);
     };
 
     const handleResetClick = () => {
@@ -69,32 +58,95 @@ export default function QuizPage() {
         setFinished(false);
     };
 
+    const goNext = (scoreDet: number) => {
+        const nextIndex = currentQuestionIndex + 1;
+        const nextScore = score + scoreDet;
+
+        setScore(nextScore);
+        handleScore(nextScore);
+
+        if (nextIndex >= questions.length) {
+            setFinished(true);
+        }
+        else {
+            setCurrentQuestionIndex(nextIndex);
+        }
+    };
+
+    const handleSkip = () => {
+        const nextIndex = currentQuestionIndex + 1;
+        setCurrentQuestionIndex(nextIndex);
+
+        if (nextIndex >= questions.length) {
+            setFinished(true);
+        }
+        else setCurrentQuestionIndex(nextIndex);
+    };
+    const handleBack = () => {
+        setCurrentQuestionIndex((i) => Math.max(i - 1, 0));
+    };
+
     return (
         <div className='quiz-container'>
-            <span className="progress-label"> 📚 Study Habits Check-in</span>
-            <div className="progress">
-            {!isFinished ? (
-                // Display current question
-                <>
-                    <span className='progress-count'> Question {currentQuestionIndex + 1} of 11 </span>
-                    <h1 className='questions'>{questions[currentQuestionIndex]}</h1>
-                    <p className='question-hint'> Think about your usual study routine</p>
-                    <div className='button-container'>
-                        <button className="button" onClick={handleYesClick}>Yes</button>
-                        <button className="no-button" onClick={handleNoClick}>No</button>
+            <div className="progress-bar">
+                <span className="progress-label"> 📚 Study Habits Check-in</span>
+                <span className='progress-count'>  {currentQuestionIndex + 1} of 11 </span>
+                <div className="progress-track">
+                    <div
+                        className="progress-fill"
+                        style={{ width: `${((currentQuestionIndex) / questions.length) * 100}%` }}
+                    >
                     </div>
-                </>
-            ) : (
-                // Display results
-                <>
-                    <p>Your predicted grade is: {scoreLetter} </p> 
-                    <button className="rest-button" onClick={handleResetClick}>Retake Quiz</button>
-                    <Link href="/">
-                        <button className="home-btn">Go Home</button>
-                    </Link>
-                </>
-            )}
+                </div>
             </div>
+            
+            <div className="question-container">
+
+                {!isFinished ? (
+                    // Display current question
+                    <>
+                        <div className="q-container">
+                            <p className='question-prefix'>QUESTION {currentQuestionIndex + 1}</p>
+                            <h1 className='question-text'>{questions[currentQuestionIndex]}</h1>
+                            <p className='question-hint'> Think about your usual study routine</p>
+                        </div>
+
+                        <div className='button-container'>
+                            <button className="yes-button" onClick={handleYesClick}>Yes</button>
+                            <button className="no-button" onClick={handleNoClick}>No</button>
+                        </div>
+                    </>
+                ) : (
+                    // Display results
+                    <div className='q-container'>
+                        <>
+                            <p className='result-text'> Predicted Grade: {scoreLetter} </p> 
+                            <button className="rest-button" onClick={handleResetClick}>Retake Quiz</button>
+                            <Link href="/">
+                                <button className="home-btn">Go Home</button>
+                            </Link>
+                        </>
+                    </div>
+                )}
+
+                </div>
+            {!isFinished ? (
+            <>
+                <div className="skip-return-container">
+                    {currentQuestionIndex > 0 && (
+                        <button className="back-button" onClick={handleBack}>
+                            ← Back
+                        </button>
+                    )}
+                <div className="skip-button-container">
+                    <button className="skip-button" onClick={handleSkip}>
+                        Skip Question
+                    </button>
+                </div>
+            </div>
+            </>
+            ):(<>
+            </>)}
         </div>
     )
 }
