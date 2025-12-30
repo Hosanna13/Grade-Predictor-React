@@ -1,7 +1,7 @@
 # 🎓 Grade-Predictor.... REACT ADDITION
 Have you ever wonder how your study habits might affect your grades? Take this quiz and find out.
 
-👉[`Try it here`](https://grade-predictor-react-2lfav9dej-hosanna13s-projects.vercel.app)
+👉[`Try it here`](https://grade-predictor-react-1ul8rte0w-hosanna13s-projects.vercel.app/)
 
 <br>
 Now lets get into the.... 
