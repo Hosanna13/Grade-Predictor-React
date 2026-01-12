@@ -37,10 +37,11 @@ This project is designed to learn:
 - UI/UX design home page
 - UI/UX design quiz page
 - UI/UX design improvements (layout, typography, spacing, consistency)
-
-**🚧 In Progress:**
 - Final UI polish + responsiveness check across screen sizes
 - Deploy + add a live demo link
+
+**🚧 In Progress:**
+
 
 **📅 Planned:**
 
